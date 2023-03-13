@@ -25,22 +25,22 @@ public class FlightController {
         List<Flight> flights = new ArrayList<>();
         Random random = new Random();
         if (n.isPresent()) {
-            for (int i = 0; i < (n.get() + 1L); i++) {
+            for (int i = 0; i < (n.get() + 1); i++) {
                 Flight flight = new Flight(
                         i,
                         "Flight " + i,
-                        "From Airport " + random.nextInt(10),
-                        "To Airport " + random.nextInt(10),
+                        "From Airport " + random.nextInt(1,10),
+                        "To Airport " + random.nextInt(1,10),
                         Flight.Status.randomStatus());
                 flights.add(flightRepository.save(flight));
             }
         } else {
-            for (int i = 1; i < 101; i++) {
+            for (int i = 0; i < 101; i++) {
                 Flight flight = new Flight(
                         i,
                         "Flight " + i,
-                        "From Airport " + random.nextInt(100),
-                        "To Airport " + random.nextInt(100),
+                        "From Airport " + random.nextInt(1,100),
+                        "To Airport " + random.nextInt(1,100),
                         Flight.Status.randomStatus());
                 flights.add(flightRepository.save(flight));
             }
